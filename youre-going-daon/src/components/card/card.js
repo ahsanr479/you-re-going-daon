@@ -1,14 +1,29 @@
 import React, { useEffect } from 'react'
+import InfoModal from '../modal/modal'
+
+
 
 function Card(props) {
+
+
+  useEffect(() => {
+    renderModal()
+  },[])
+
+  const renderModal = () => {
+    console.log('rendring data')
+    return(
+      <InfoModal/>
+    )
+  }
+
   return (
     <div hidden={props.hiddenFlag}>
       {console.log(props.info)}
-      { props.info ? <div>
-            <h1>{props.info.projectName}</h1>   
-            <p>{props.info.projectDescription}</p>   
-            <h2>Team Members</h2>
-            <div>
+      { props.info ? <div class="jumbotron">
+  <h1 class="display-4">{props.info.projectName}</h1>
+  <p class="lead">{props.info.projectDescription}</p>
+  <div>
               {
               props.info.teamMembers.map((el) => {
                 return <div>
@@ -16,8 +31,13 @@ function Card(props) {
                   <p hidden> {el.id} </p>
                 </div>
               })}
-            </div>
-          </div>
+  </div>
+  {/* <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button" >Vote</a>
+  </p> */}
+  <InfoModal/>
+</div>
+
           : null 
         }
     </div>
