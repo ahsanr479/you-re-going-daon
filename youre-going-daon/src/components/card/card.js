@@ -1,11 +1,11 @@
 import React from 'react'
 
-function card() {
+function Card(props) {
   return (
-    <div>
-        Hello, I'm Card
+    <div hidden={true}>
+        {props.info}
     </div>
   )
 }
 
-export default card
+export default Card;
