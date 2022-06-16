@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '../card/card';
 import { useState } from 'react';
+import './../../App.css';
 
 function List() {
     //pull api data here
@@ -31,14 +32,20 @@ function List() {
         } 
     }
     return (
-            <div>
-                {myMockJson.data.map((el, index)=>{
-                return <div onClick={()=>{logic(index, el)}}>
-                        <h1>{el.projectName}</h1>   
-                        <p>{el.projectDescription}</p> 
+        <div className="parent">
+            <div className='div1'>
+                <div className="listContainer">
+                    {myMockJson.data.map((el, index)=>{
+                    return <div class='listItem' onClick={()=>{logic(index, el)}}>
+                            <h1>{el.projectName}</h1>   
+                            <p>{el.projectDescription}</p> 
+                    </div>
+                    
+                    })}
                 </div>
-            })}
-            <Card hiddenFlag={hiddenFlag} info={selectedData}></Card>
+            </div>
+            <Card className="div2" hiddenFlag={hiddenFlag} info={selectedData}></Card>
+            
         </div>
     )
 }

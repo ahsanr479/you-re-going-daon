@@ -3,10 +3,9 @@ import List from './components/list/list';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div >
       <main>
-        <List></List>
+          <List></List>
       </main>
     </div>
   );
