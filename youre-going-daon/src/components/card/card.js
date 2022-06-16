@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function Card(props) {
   return (
-    <div hidden={true}>
+    <div hidden={props.hiddenFlag}>
         {props.info}
+        {console.log("CARD: ", props.hiddenFlag)}
     </div>
   )
 }

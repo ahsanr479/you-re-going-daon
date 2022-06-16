@@ -1,19 +1,25 @@
 import React from 'react'
 import Card from '../card/card';
+import { useState } from 'react';
 
 function List() {
     //pull api data here
     let myList = ['hello', 'im', 'a', 'list'];
-    let hiddenFlag = true;
+    let data={}
+    const [hiddenFlag, updateHiddenFlag] = useState(true);
+
     return (
-        <div>
+            <div>
             {myList.map((el)=>{
-                return <div onClick={()=>{hiddenFlag=!hiddenFlag}}>
+                return <div onClick={()=>{updateHiddenFlag(!hiddenFlag); console.log("rendering: ", hiddenFlag)}}>
                     {"\n" + el}
-                    <Card hidden={hiddenFlag} info="example text"></Card>
+                    
                 </div>
             })}
+            <Card hiddenFlag={hiddenFlag} info="example text" data={data}></Card>
         </div>
+
+        
     )
 }
 
